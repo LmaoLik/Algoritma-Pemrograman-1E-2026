@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+<attributes>
+<attribute name="name" value="Brankas Budi"/>
+<attribute name="authors" value="Kanz"/>
+<attribute name="about" value="Kode rahasia brankas 3 digit"/>
+<attribute name="saved" value="2026-10-05 10:00:00 AM"/>
+<attribute name="created" value="S2FuejtQQzsyMDI2LU9jdC0wNTsxMDowMDowMCBBTTsxMDAw"/>
+<attribute name="edited" value="S2FuejtQQzsyMDI2LU9jdC0wNTsxMDowMDowMCBBTTsxMDAw"/>
+</attributes>
+<function name="Main" type="None" variable="">
+<parameters/>
+<body>
+<declare name="kode" type="Integer" array="False" size=""/>
+<declare name="d1" type="Integer" array="False" size=""/>
+<declare name="d2" type="Integer" array="False" size=""/>
+<declare name="d3" type="Integer" array="False" size=""/>
+<declare name="pelacak" type="Integer" array="False" size=""/>
+<output expression="&quot;Masukkan kode rahasia (3 digit): &quot;" newline="True"/>
+<input variable="kode"/>
+<if expression="kode &lt; 100 OR kode &gt; 999"><then><output expression="&quot;Kode harus 3 digit angka (100-999)!&quot;" newline="True"/></then><else><assign variable="d1" expression="Int(kode / 100)"/><assign variable="d2" expression="Int(kode / 10) % 10"/><assign variable="d3" expression="kode % 10"/><output expression="&quot;Digit pertama : &quot; &amp; d1" newline="True"/><output expression="&quot;Digit kedua   : &quot; &amp; d2" newline="True"/><output expression="&quot;Digit ketiga  : &quot; &amp; d3" newline="True"/><assign variable="pelacak" expression="d1 * d3"/><output expression="&quot;Nilai pelacak awal : &quot; &amp; pelacak" newline="True"/><if expression="d2 % 2 == 1"><then><assign variable="pelacak" expression="pelacak + 25"/></then><else><assign variable="pelacak" expression="pelacak - d2"/></else></if><output expression="&quot;Nilai pelacak setelah tahap 1 : &quot; &amp; pelacak" newline="True"/><if expression="pelacak % 3 == 0"><then><assign variable="pelacak" expression="Int(pelacak / 3)"/></then><else><assign variable="pelacak" expression="pelacak * 2"/></else></if><output expression="&quot;Nilai pelacak setelah tahap 2 (nilai akhir) : &quot; &amp; pelacak" newline="True"/><if expression="pelacak &gt; 50"><then><output expression="&quot;Status: Password terdeteksi Kategori A&quot;" newline="True"/></then><else><if expression="pelacak &gt; 20"><then><output expression="&quot;Status: Password terdeteksi Kategori B&quot;" newline="True"/></then><else><output expression="&quot;Status: Password Ditolak&quot;" newline="True"/></else></if></else></if><if expression="pelacak % 2 == 0"><then><output expression="&quot;Siklus Genap&quot;" newline="True"/></then><else><output expression="&quot;Siklus Ganjil&quot;" newline="True"/></else></if></else></if>
+</body>
+</function>
+</flowgorithm>
